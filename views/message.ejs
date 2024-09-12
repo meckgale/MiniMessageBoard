@@ -1,0 +1,13 @@
+<div>
+  <h3><%= message.user %>'s Message</h3>
+  <p><%= message.message %></p>
+  <h6>
+    <% const month=message.added.toLocaleString('default', { month: 'short' });
+    const day=message.added.getDate(); const year=message.added.getFullYear();
+    const hours=message.added.getHours().toString().padStart(2, '0' ); const
+    minutes=message.added.getMinutes().toString().padStart(2, '0' ); const
+    formattedDate=`${month} ${day} ${year} ${hours}:${minutes}`; %>
+    <%=formattedDate %>
+  </h6>
+  <a href="/">Back to All Messages</a>
+</div>

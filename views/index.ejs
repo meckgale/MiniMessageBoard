@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Message Board</title>
+  </head>
+  <body>
+    <%- include('navbar') %> <% messages.forEach((message) => { %>
+    <div>
+      <h3><%= message.user %></h3>
+      <p><%= message.message %></p>
+      <h6>
+        <% const month=message.added.toLocaleString('default', { month: 'short'
+        }); const day=message.added.getDate(); const
+        year=message.added.getFullYear(); const
+        hours=message.added.getHours().toString().padStart(2, '0' ); const
+        minutes=message.added.getMinutes().toString().padStart(2, '0' ); const
+        formattedDate=`${month} ${day} ${year} ${hours}:${minutes}`; %>
+        <%=formattedDate %>
+      </h6>
+      <a href="/messages/<%= message.id %>">Open</a>
+    </div>
+    <% }) %>
+  </body>
+</html>
