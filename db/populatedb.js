@@ -17,6 +17,9 @@ async function main() {
     user: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
     port: process.env.DATABASE_PORT || 5432,
+    ssl: {
+      rejectUnauthorized: false, // Required for hosted PostgreSQL (Koyeb or others)
+    },
   });
 
   await client.connect();
