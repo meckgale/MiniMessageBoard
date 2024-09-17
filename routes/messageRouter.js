@@ -1,11 +1,10 @@
 const express = require("express");
-const messages = require("../db/messages");
+const db = require("../db/queries");
 
 const messageRouter = express.Router();
 
-messageRouter.get("/messages/:id", (req, res) => {
-  const messageId = parseInt(req.params.id); // Get the id from the URL
-  const message = messages.find((msg) => msg.id === messageId); // Find the message by id
+messageRouter.get("/messages/:id", async (req, res) => {
+  const message = await db.getMessageById(req.params.id);
 
   if (message) {
     res.render("message", { message }); // Render a new view for the individual message
