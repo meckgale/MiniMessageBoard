@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "populate-db": "node db/populatedb.js",
-    "start": "npm run populate-db && node app.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
