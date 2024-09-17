@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "populate-db": "node db/populatedb.js",
+    "start": "npm run populate-db && node app.js"
   },
   "keywords": [],
   "author": "",
